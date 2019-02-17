@@ -1,3 +1,7 @@
+//ENTRY POINT
+//Identifies which angular module is to be loaded when the app starts
+//It can also change app-level configuration
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
