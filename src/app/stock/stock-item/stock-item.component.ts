@@ -1,5 +1,6 @@
 //this component renders the template associated with it
 import { Component, OnInit } from '@angular/core';
+import { Stock } from '../../model/stock'
 
 @Component({
   selector: 'app-stock-item',
@@ -8,27 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockItemComponent implements OnInit { //OnInit interface gives us a hook to when a component is initialised
 
-  public name: string;                              //definitions of fields we want to access from the HTML
-  public code: string;
-  public price: number;
-  public previousPrice: number;
-  public positiveChange: boolean;
-  public favourite: boolean;
+  public stock: Stock; //replaced all the individual member variables with one variable of type Stock
 
   constructor() { }
 
   ngOnInit() {                                    //function triggered when a component is initialised
-  this.name = 'Test Stock Company';               // initialising the values for each of the components
-  this.code = 'TSC';
-  this.price = 78;
-  this.previousPrice = 80;
-  this.positiveChange = this.price >= this.previousPrice;
-  this.favourite = false;
+  this.stock= new Stock('Test Stock Company', 'TSC', 78, 80);
   }
 
   toggleFavourite(event) {
     console.log("We are toggling the favorite state for this stock", event);
-    this.favourite = !this.favourite;
+    this.stock.favourite = !this.stock.favourite;
   }
 
 }
