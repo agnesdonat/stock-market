@@ -10,11 +10,22 @@ import { Stock } from '../../model/stock'
 export class StockItemComponent implements OnInit { //OnInit interface gives us a hook to when a component is initialised
 
   public stock: Stock; //replaced all the individual member variables with one variable of type Stock
-
+  public StockClasses;
   constructor() { }
 
-  ngOnInit() {                                    //function triggered when a component is initialised
-  this.stock= new Stock('Test Stock Company', 'TSC', 78, 80);
+  ngOnInit() {
+
+  this.stock= new Stock('Test Stock Company', 'TSC', 85, 80);
+
+  let difference = (this.stock.price / this.stock.previousPrice) -1;
+  let largeChange = Math.abs(difference) > 0.01;
+
+  this.stockClasses = {
+    "positive": this.stock.isPositiveChange(),
+    "negative": !this.stock.isPositiveChange(),
+    "large-change": largeChange,
+    "small-change": !largeChange
+    };
   }
 
   toggleFavourite(event) {
