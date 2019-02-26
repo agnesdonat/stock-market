@@ -10,7 +10,7 @@ import { Stock } from '../../model/stock'
 export class StockItemComponent implements OnInit { //OnInit interface gives us a hook to when a component is initialised
 
   public stock: Stock; //replaced all the individual member variables with one variable of type Stock
-  public StockClasses;
+  public stockClasses;
   constructor() { }
 
   ngOnInit() {
