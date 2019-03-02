@@ -34,7 +34,17 @@ component: a directive that provides both functionality and UI logic; an element
 non-component directives: work on and modify existing elements
               attribute directives: change the look and feel, or the behavior, of an existing element or component (NgClass, NgStyles;  alternatives for the class and style bindings)
               structural directives: change the DOM layout by adding or removing elements from the view (NgIf, NgFor)  
-
-NgClass directive allows us to apply or remove multiple CSS classes simultaneously from an element in our HTML
+AD
+NgClass: allows us to apply or remove multiple CSS classes simultaneously from an element in our HTML
         takes a JavaScript object as input;
-        
+NgStyle: lower-level equivalent of the NgClass directive  
+         it takes a JSON object and applies it based on the values of the key
+         works at a CSS style/properties level
+
+SD        
+ngIf: to conditionally hide or show elements in your UI 
+      it simply expects the expression provided to it to evaluate to a truthy value     
+ngFor: creating multiple elements, usually one for each instance of some or the other object in an array
+
+
+Remove vs Hide elements: Removing the element from the DOM is a good way to ensure that it reduces any impact on performance

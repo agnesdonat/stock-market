@@ -7,7 +7,7 @@
        [class.positive]="stock.isPositiveChange()"
        [class.negative]="!stock.isPositiveChange()">$ {{stock.price}}</div>
   <button (click)="toggleFavourite($event)"
-          [disabled]="stock.favourite">Add to favourite</button>
+          *ngIf="!stock.favourite">Add to favourite</button>
 </div>
 <!-- the square-bracket notation refers to data flowing from the component to the UI -->
 <!-- (click) refers to the event we are binding to -->
