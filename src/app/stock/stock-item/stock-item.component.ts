@@ -1,4 +1,3 @@
-//this component renders the template associated with it
 import { Component, OnInit } from '@angular/core';
 import { Stock } from '../../model/stock'
 
@@ -7,29 +6,24 @@ import { Stock } from '../../model/stock'
   templateUrl: './stock-item.component.html',
   styleUrls: ['./stock-item.component.css']
 })
-export class StockItemComponent implements OnInit { //OnInit interface gives us a hook to when a component is initialised
+export class StockItemComponent implements OnInit {
 
-  public stock: Stock; //replaced all the individual member variables with one variable of type Stock
-  public stockStyles;
+  public stocks: Array<Stock>;
 
   constructor() { }
 
   ngOnInit() {
 
-  this.stock= new Stock('Test Stock Company', 'TSC', 85, 80);
+  this.stocks=[
+    new Stock('Test Stock Company', 'TSC', 85, 80);
+    new Stock('Second Stock Company', 'TSC', 10, 12);
+    new Stock('Last Stock Company', 'TSC', 73, 79);
+    ];
+}
 
-  let difference = (this.stock.price / this.stock.previousPrice) -1;
-  let largeChange = Math.abs(difference) > 0.01;
-
-  this.stockStyles = {
-    "color": this.stock.isPositiveChange ? "green" : "red",
-    "font-size": largeChange ? "1.2 em" : "0.8 em"
-    };
-  }
-
-  toggleFavourite(event) {
-    console.log("We are toggling the favorite state for this stock", event);
-    this.stock.favourite = !this.stock.favourite;
+ toggleFavourite(event, index) {
+    console.log("We are toggling the favorite state for this stock", index, event);
+    this.stocks[index].favourite = !this.stocks[index].favourite;
   }
 
 }
