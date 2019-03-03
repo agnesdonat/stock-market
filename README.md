@@ -48,3 +48,7 @@ ngFor: creating multiple elements, usually one for each instance of some or the 
 
 
 Remove vs Hide elements: Removing the element from the DOM is a good way to ensure that it reduces any impact on performance
+
+trackBy: it will use the return value of the function to decide how to identify individual elements
+         ensures that Angular calls the function to figure out how to identify individual items, instead of using the object reference
+         whenever you know that you are going to reload the list (for example, loading it from an observable that makes a server call)
