@@ -52,3 +52,9 @@ Remove vs Hide elements: Removing the element from the DOM is a good way to ensu
 trackBy: it will use the return value of the function to decide how to identify individual elements
          ensures that Angular calls the function to figure out how to identify individual items, instead of using the object reference
          whenever you know that you are going to reload the list (for example, loading it from an observable that makes a server call)
+
+NgSwitch: attribute directive
+          NgSwitchCase: structural directive - add elements based on type
+          NgSwitchDefault: structural directive - display default elements
+          
+ngFor and and ngIf can't run on the same template; it is recommended to just use wrapping elements so that you can be explicit about the order in which these structural directives are executed          
